@@ -1,27 +1,28 @@
 {
+  "extends": ["@vue/tsconfig/tsconfig.json", "@vue/tsconfig/tsconfig.dom.json"],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "vite.config.ts"],
   "compilerOptions": {
-    "baseUrl": "./src",
-    "target": "esnext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "baseUrl": ".",
+    // "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    // "allowJs": true,
+    // "skipLibCheck": true,
+    // "esModuleInterop": true,
+    // "allowSyntheticDefaultImports": true,
+    // "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": false,
+    "noErrorTruncation": true,
+    "strictNullChecks": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "preserve"
-  },
-  "include": [
-    "src"
-  ]
+    // "resolveJsonModule": true,
+    // "isolatedModules": true,
+    // "noEmit": true,
+    // "jsx": "preserve",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
 }

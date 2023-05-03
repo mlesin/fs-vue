@@ -1,22 +1,38 @@
 <script setup lang="ts">
-  import {Layout, LayoutContent, Row, Col, TypographyTitle, Spin, Empty} from 'ant-design-vue';
-  import {onMounted, computed} from 'vue';
-  import {useStore} from 'vuex';
+import {
+  Layout,
+  LayoutContent,
+  Row,
+  Col,
+  TypographyTitle,
+  Spin,
+  Empty,
+} from "ant-design-vue";
+import { onMounted, computed } from "vue";
+import { useStore } from "vuex";
 
-  import {ToggleTask} from 'features/toggle-task';
-  import {TaskFilters} from 'features/task-filters';
-  import {taskModel, TaskRow} from 'entities/task';
+import { ToggleTask } from "@/features/toggle-task";
+import { TaskFilters } from "@/features/task-filters";
+import { taskModel, TaskRow } from "@/entities/task";
 
-  import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
+import type { Task } from "@/shared/api";
 
-  const store = useStore();
+const store = useStore();
 
-  const getTasksListAsync = () => store.dispatch(taskModel.actions.getTasksListAsync);
-  onMounted(getTasksListAsync)
+const getTasksListAsync = () =>
+  store.dispatch(taskModel.actions.getTasksListAsync);
+onMounted(getTasksListAsync);
 
-  const isListLoading = computed(() => store.state[taskModel.NAMESPACE].isListLoading)
-  const isTasksListEmpty = computed(() => store.getters[taskModel.getters.isTasksListEmpty]);
-  const filteredTasks = computed(() => store.getters[taskModel.getters.filteredTasks])
+const isListLoading = computed(
+  () => store.state[taskModel.NAMESPACE].isListLoading
+);
+const isTasksListEmpty = computed(
+  () => store.getters[taskModel.getters.isTasksListEmpty]
+);
+const filteredTasks = computed(
+  (): Task[] => store.getters[taskModel.getters.filteredTasks]
+);
 </script>
 
 <template>
@@ -35,12 +51,9 @@
         <Empty v-else-if="isTasksListEmpty" description="No tasks found" />
         <template v-else v-for="task in filteredTasks" :key="task.id">
           <Col :span="24">
-            <TaskRow
-              :data="task"
-              :titleHref="`/${task.id}`"
-            >
+            <TaskRow :data="task" :titleHref="`/${task.id}`">
               <template v-slot:before>
-                <ToggleTask :taskId='task.id' :withStatus='false' />
+                <ToggleTask :taskId="task.id" :withStatus="false" />
               </template>
             </TaskRow>
           </Col>

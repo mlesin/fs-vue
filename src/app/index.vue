@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import {Routing} from 'pages';
+import { Routing } from "@/pages";
 </script>
 
 <template>
@@ -8,6 +8,6 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
 @import "./index.scss";
 </style>

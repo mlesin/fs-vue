@@ -1,27 +1,24 @@
 <script setup lang="ts">
-  import {toRefs} from 'vue';
-  import {RouterLink} from 'vue-router';
-  import {Row} from 'ant-design-vue';
-  import {Task} from 'shared/api';
-  import styles from './styles.module.scss';
+import { toRefs, type PropType } from "vue";
+import { RouterLink } from "vue-router";
+import { Row } from "ant-design-vue";
+import type { Task } from "@/shared/api";
+import styles from "./styles.module.scss";
 
-  // interfaces are not exporting....
-  interface TaskRowProps {
-    data: Task;
-    titleHref?: string;
-  }
+const props = defineProps({
+  data: { type: Object as PropType<Task>, required: true },
+  titleHref: String,
+});
 
-  const props = defineProps<TaskRowProps>()
-
-  const {data, titleHref} = toRefs(props)
+const { data, titleHref } = toRefs(props);
 </script>
 
 <template>
-  <Row :class="[styles.root, { [styles.completed]: data?.completed }]">
+  <Row :class="[styles.root, { completed: data?.completed }]">
     <div :class="styles.marginBefore">
       <slot name="before" />
     </div>
-    <RouterLink v-if="titleHref" :to="titleHref">{{data?.title}}</RouterLink>
-    <span v-else>{{data?.title}}</span>
+    <RouterLink v-if="titleHref" :to="titleHref">{{ data?.title }}</RouterLink>
+    <span v-else>{{ data?.title }}</span>
   </Row>
 </template>
