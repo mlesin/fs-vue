@@ -1,2 +1,2 @@
-import TaskFilters from './ui.vue';
-export {TaskFilters};
+import TaskFilters from "./ui.vue";
+export { TaskFilters };

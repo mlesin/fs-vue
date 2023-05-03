@@ -1,2 +1,2 @@
-import TasksListPage from './index.vue';
+import TasksListPage from "./index.vue";
 export default TasksListPage;

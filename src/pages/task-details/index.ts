@@ -1,2 +1,2 @@
-import TaskDetails from './index.vue';
+import TaskDetails from "./index.vue";
 export default TaskDetails;

@@ -1,2 +1,2 @@
-import ToggleTask from './ui.vue';
-export {ToggleTask}
+import ToggleTask from "./ui.vue";
+export { ToggleTask };

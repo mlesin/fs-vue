@@ -2,7 +2,9 @@
 import { RadioButton, RadioGroup, type RadioChangeEvent } from "ant-design-vue";
 import { computed, ref } from "vue";
 import { useStore } from "vuex";
+
 import { taskModel } from "@/entities/task";
+
 import {
   filtersList,
   getFilterById,

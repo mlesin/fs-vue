@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { Layout, LayoutContent, Result, Button } from "ant-design-vue";
 import { onMounted, computed } from "vue";
-import { useStore } from "vuex";
 import { RouterLink, useRoute } from "vue-router";
+import { useStore } from "vuex";
 
 import { ToggleTask } from "@/features/toggle-task";
+
 import { TaskCard, taskModel } from "@/entities/task";
 
-import styles from "./styles.module.scss";
 import type { Task } from "@/shared/api";
+
+import styles from "./styles.module.scss";
 
 const route = useRoute();
 const taskId = Number(route.params.id as string);

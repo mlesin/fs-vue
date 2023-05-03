@@ -1,5 +1,6 @@
-import type { ActionContext } from "vuex";
 import { normalize, schema } from "normalizr";
+// import type { ActionContext } from "vuex";
+
 import { typicodeApi } from "@/shared/api";
 import type { Task } from "@/shared/api";
 
@@ -65,7 +66,6 @@ export const module = {
       state.isDetailsLoading = isLoading;
     },
     addTaskToList: (state: TasksState, response: any) => {
-      const q = normalizeTask(response?.data).entities[NAMESPACE];
       state.data = {
         ...state.data,
         ...normalizeTask(response?.data).entities[NAMESPACE],

@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { Row } from "ant-design-vue";
 import { toRefs, type PropType } from "vue";
 import { RouterLink } from "vue-router";
-import { Row } from "ant-design-vue";
+
 import type { Task } from "@/shared/api";
+
 import styles from "./styles.module.scss";
 
 const props = defineProps({

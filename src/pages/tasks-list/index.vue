@@ -11,12 +11,14 @@ import {
 import { onMounted, computed } from "vue";
 import { useStore } from "vuex";
 
-import { ToggleTask } from "@/features/toggle-task";
 import { TaskFilters } from "@/features/task-filters";
+import { ToggleTask } from "@/features/toggle-task";
+
 import { taskModel, TaskRow } from "@/entities/task";
 
-import styles from "./styles.module.scss";
 import type { Task } from "@/shared/api";
+
+import styles from "./styles.module.scss";
 
 const store = useStore();
 

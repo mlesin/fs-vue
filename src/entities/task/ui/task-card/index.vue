@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { Card } from "ant-design-vue";
 import { toRefs, computed, type PropType } from "vue";
 import { RouterLink } from "vue-router";
-import { Card } from "ant-design-vue";
+
 import type { Task } from "@/shared/api";
+
 import styles from "./styles.module.scss";
 
 const props = defineProps({
